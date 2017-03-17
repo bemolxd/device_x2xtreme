@@ -201,7 +201,7 @@ BOARD_MEDIATEK_USES_GPS := true
 #TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 #Hack for prebuilt kernel
-ifeq ($(TARGET_DEVICE),x500)
+ifeq ($(TARGET_DEVICE),x2xtreme)
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 $(shell touch $(OUT)/obj/KERNEL_OBJ/usr/export_includes)
 endif
