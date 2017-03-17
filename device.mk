@@ -133,6 +133,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/fstab.mt6795:root/fstab.mt6795 \
     $(LOCAL_PATH)/ramdisk/init.modem.rc:root/init.modem.rc \
     $(LOCAL_PATH)/ramdisk/init.mt6795.rc:root/init.mt6795.rc \
+    $(LOCAL_PATH)/ramdisk/init.recovery.mt6795.rc:root/init.recovery.mt6795.rc \
     $(LOCAL_PATH)/ramdisk/init.mt6795.usb.rc:root/init.mt6795.usb.rc \
     $(LOCAL_PATH)/ramdisk/init.project.rc:root/init.project.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.mt6795.rc:root/ueventd.mt6795.rc \
