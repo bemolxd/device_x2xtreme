@@ -16,20 +16,20 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui
 $(call inherit-product, device/common/gps/gps_us_supl.mk) 
 
 # Vendor
-$(call inherit-product, vendor/LeTV/x500/x500-vendor-blobs.mk)
+$(call inherit-product, vendor/allview/x2xtreme/x2xtreme-vendor-blobs.mk)
 
 # Overlay Folder
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Folder path
-LOCAL_PATH := device/LeTV/x500
+LOCAL_PATH := device/allview/x2xtreme
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Recovery allowed devices
-TARGET_OTA_ASSERT_DEVICE := x3,X500,X507,X509,X3,x500,x507,x509,X502,x502
+TARGET_OTA_ASSERT_DEVICE := x2xtreme,BLU_PURE_XL
 
 # Power
 PRODUCT_PACKAGES += \

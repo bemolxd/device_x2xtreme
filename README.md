@@ -1,5 +1,4 @@
-# Leeco 1s - LineageOS 14.1
-==============
+# Allview X2 Soul Xtreme - LineageOS 14.1
 
 This branch is device for building of the LineageOS 14.1.
 
@@ -7,7 +6,7 @@ This branch is device for building of the LineageOS 14.1.
 
 # About Device
 
-![LeEco Le1S](http://cdn2.gsmarena.com/vv/pics/leeco/letv-le-1s-1.jpg "LeEco Le1S")
+![Allview X2 Soul Xtreme](http://cdn2.gsmarena.com/vv/pics/allview/allview-x2-extr.jpg "Allview X2 Soul Xtreme")
 
 
 ## Specifications
@@ -15,54 +14,21 @@ This branch is device for building of the LineageOS 14.1.
 
 Basic   | Spec Sheet
 -------:|:-------------------------
-CPU     | Octa-core 2.2 GHz Cortex-A53
+CPU     | Octa-core 2.0 GHz Cortex-A53
 Chipset | Mediatek MT6795 Helio X10
 GPU     | PowerVR G6200
 Memory  | 3GB 
-Storage | 32GB
-Battery | Non-removable Li-po 3000 mAh battery
-Display | 1080 x 1920 pixels (~401 ppi pixel density) 5.5 inches
-Camera  | Primary: 13 MP, Secondary: 5 MP
+Storage | 64GB
+Battery | Non-removable Li-po 3450 mAh battery
+Display | 1440 x 2560 pixels (~490 ppi pixel density) 6.0 inches
+Camera  | Primary: 24 MP, Secondary: 8 MP
 
 ---
 
-# Build Information
-
-## Working
-* Adjustable brightness
-* Audio
-* Auto brightness
-* MTP and Mass Storage modes
-* Vibration
-* Rotation
-* RIL
-* Video
-* Gallery
-* Fingerprint
-* Mic
-* Wi-Fi
-* Bluetooth
-* Internet
-* GPS
-* IR
-* Audio over BT
-
-## Broken/Bugs
-* Camera
-* Flashlight (statusbar and camera)
-* ?????
-
-## DONATE
-
-https://www.paypal.me/Wisniabdg
-
-## DOWNLOADS
-
-LineageOS14 http://forum.le.com/in/index.php?threads/lineageos-14-1-leeco-1s.18742/
-
-RR http://forum.le.com/in/index.php?threads/resurrection-remix-5-8-2-beta-android-7-1-1.18768/
 
 ## THANKS TO:
+
+WisniaPL
 
 DeckerSU
 
