@@ -1,8 +1,6 @@
 # MTK project .rc configure
 
 import init.mt6795.usb.rc
-import init.modem.rc
-import init.trustonic.rc
 
 on init
     mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
@@ -18,9 +16,6 @@ on post-fs-data
     chmod 0660 /dev/ttyMT2
     chown system system /dev/ttyMT2
 
-#/dev/ttyMT3 for IRDA usage
-    chmod 0666 /dev/ttyMT3
-    chown system system /dev/ttyMT3
 
 # STP, WMT, GPS, FM and BT Driver
 #   insmod /system/lib/modules/mtk_hif_sdio.ko
@@ -49,28 +44,13 @@ on post-fs-data
     mknod /dev/wmtWifi c 153 0
     chmod 0660 /dev/wmtWifi
     chown system system /dev/wmtWifi
-
-#disable quick charge
-    chown system system /sys/class/power_supply/bq2589x-Wall/disable_quick_charge
-    chmod 0660 /sys/class/power_supply/bq2589x-Wall/disable_quick_charge
-
 #Camera
-    chmod 0660 /dev/MAINAF
-    chown system camera /dev/MAINAF
-
-    chmod 0660 /dev/MAINAF2
-    chown system camera /dev/MAINAF2
-
-    chmod 0660 /dev/SUBAF
-    chown system camera /dev/SUBAF
-
     chmod 0660 /dev/GAF001AF
     chown system camera /dev/GAF001AF
    
     chmod 0660 /dev/DW9714AF
     chown system camera /dev/DW9714AF
     
-
     chmod 0660 /dev/AD5820AF
     chown system camera /dev/AD5820AF
     
@@ -82,22 +62,8 @@ on post-fs-data
 
     chmod 0660 /dev/LC898122AF
     chown system camera /dev/LC898122AF
-    chmod 0660 /dev/LC898122OFILMAF
-    chown system camera /dev/LC898122OFILMAF
-    chmod 0660 /dev/BU6429AF
-    chown system camera /dev/BU6429AF
-    chmod 0660 /dev/LC898217AF
-    chown system camera /dev/LC898217AF
-    chmod 0660 /dev/CAM_CAL_DRV
-    chmod 0660 /dev/CAM_CAL_DRV_SHARP
-    chmod 0660 /dev/CAM_CAL_DRV_OFILM
-    chmod 0660 /dev/CAM_CAL_DRV_3L8
-    chmod 0660 /dev/CAM_CAL_DRV_3L9
-    chown system camera /dev/CAM_CAL_DRV
-    chown system camera /dev/CAM_CAL_DRV_SHARP
-    chown system camera /dev/CAM_CAL_DRV_OFILM
-    chown system camera /dev/CAM_CAL_DRV_3L8
-    chown system camera /dev/CAM_CAL_DRV_3L9
+#3rd-fpc
+    chmod 0664 /dev/fpc1020
 
 # BT
 #    chmod 0660 /dev/stpbt
@@ -111,10 +77,6 @@ on post-fs-data
     chown gps gps /sys/class/gpsdrv/gps/pwrsave
     chown gps gps /sys/class/gpsdrv/gps/status
 #    chmod 0660 /dev/stpgps
-
-# Add Wake Gestures
-    chown system system /sys/bus/i2c/devices/i2c-2/2-004b/wake_gesture_enable
-    chmod 0644 /sys/bus/i2c/devices/i2c-2/2-004b/wake_gesture_enable
 
 # WiFi
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -135,14 +97,12 @@ on post-fs-data
     chown bluetooth bluetooth /dev/ampc0
     chmod 0660 /dev/ampc0
 
-
 #
 # Connectivity related device nodes & configuration (end)
 #
 
-# goodix fingerprint begin
-    chown system system /dev/goodix_fp
-# goodix fingerprint end
+# Encrypt phone function
+    setprop vold.post_fs_data_done 1
 
 on init
     # Refer to http://source.android.com/devices/tech/storage/index.html
@@ -171,33 +131,10 @@ service wmt_loader /system/bin/wmt_loader
 service 66xx_launcher /system/bin/6620_launcher -m 4 -p /system/etc/firmware/
     user system
     group system
-	class core
+    class core
 
-on property:service.wcn.coredump.mode=2
-start stp_dump
 
-service stp_dump /system/bin/stp_dump3
-	user root
-	group root
-	class core
-	disabled
-	oneshot
+#
+# Connectivity related services (End)
+#
 
-# add by letv for reduced power rate when normal charge be selected begin
-on property:persist.sys.le_fast_chrg_enable=1
-    write /sys/class/power_supply/bq2589x-Wall/disable_quick_charge 0
-on property:persist.sys.le_fast_chrg_enable=0
-    write /sys/class/power_supply/bq2589x-Wall/disable_quick_charge 1
-# add by letv for reduced power rate when normal charge be selected end
-
-# goodix fingerprint begin
-service goodixfpd /system/bin/goodixfingerprintd
-    class main
-    user system
-    group system
-
-service fingerprintd /system/bin/fingerprintd
-    class main
-    user system
-    group system
-# goodix fingerprint end
